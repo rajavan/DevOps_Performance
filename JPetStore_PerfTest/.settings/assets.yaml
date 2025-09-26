@@ -1,0 +1,192 @@
+name: JPetStore_PerfTest
+version: 2
+projectReferences: 
+resources: 
+  - name: .classpath
+    type: com.ibm.rational.test.lt.classpath
+    dependencies: 
+      - path: /JPetStore_PerfTest/src
+        type: javaClasspath
+  - name: BlazeDemo.recdata
+  - name: BlazeDemo.recsession
+    type: com.ibm.rational.test.lt.recsession
+    dependencies: 
+      - path: /JPetStore_PerfTest/BlazeDemo.recdata
+        type: recsessionRecdata
+  - name: CompTest.testsuite
+    type: com.ibm.rational.test.lt.scenario
+    version: 11.0.0.0
+    properties: 
+      description: 'Test(s): 
+
+'
+      name: CompTest
+      type: com.ibm.rational.test.common.schedule.ScenarioTestsuite
+      uid: A1EEF4121F28A490E244B56231376662
+  - name: FromTemplate_sch.testsuite
+    type: com.ibm.rational.test.lt.schedule
+    version: 11.0.0.0
+    properties: 
+      description: 'Stages:
+
+	users=5; duration=Run Until Finished
+
+User Group 1: Group Size 100.0 percent
+
+	Test(s): r
+
+'
+      name: FromTemplate_sch
+      type: com.ibm.rational.test.common.schedule.Schedule
+      uid: A1EEF4121474EDF6E244B56231376662
+    dependencies: 
+      - path: /JPetStore_PerfTest/r.testsuite
+        type: scheduleInvokedTest
+  - name: JPetStore_Perf.executiondlr
+  - name: JPetStore_Perf.recdata
+  - name: JPetStore_Perf.recsession
+    type: com.ibm.rational.test.lt.recsession
+    dependencies: 
+      - path: /JPetStore_PerfTest/JPetStore_Perf.recdata
+        type: recsessionRecdata
+  - name: JPetStore_Perf.stats
+    type: com.ibm.rational.test.lt.stats.session
+    properties: 
+      startTime: 1709823486759
+      tags: 
+      testId: A1EEDB8EF87B1940DEE3E56136323632
+      testName: JPetStore_Perf
+    dependencies: 
+      - path: /JPetStore_PerfTest/JPetStore_Perf.executiondlr
+        type: statsSessionAsset
+      - path: /JPetStore_PerfTest/JPetStore_Perf.testsuite
+        type: statsSessionTest
+      - path: /JPetStore_PerfTest/JPetStore_Perf_orch!system.mstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/JPetStore_Perf_orch!system.rstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/JPetStore_Perf_perf!localhost.mstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/JPetStore_Perf_perf!localhost.rstats
+        type: statsSessionStore
+  - name: JPetStore_Perf.testsuite
+    type: com.ibm.rational.test.lt.test
+    version: 11.0.0.0
+    properties: 
+      features: 'com.ibm.rational.test.lt.feature.lt,com.ibm.rational.test.lt.feature.http'
+      type: com.ibm.rational.test.lt.lttest
+      uid: A1EEDB8EF87B1940DEE3E56136323632
+    dependencies: 
+      - path: /JPetStore_PerfTest/JPetStore_Perf.recsession
+        type: testRecsession
+  - name: JPetStore_Perf_1709711795721.stats
+    type: com.ibm.rational.test.lt.stats.session
+    properties: 
+      startTime: 1709711795721
+      tags: 
+      testId: A1EEDB8EF87B1940DEE3E56136323632
+      testName: JPetStore_Perf
+    dependencies: 
+      - path: /JPetStore_PerfTest/JPetStore_Perf.testsuite
+        type: statsSessionTest
+      - path: /JPetStore_PerfTest/JPetStore_Perf_1709711795721_orch!system.mstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/JPetStore_Perf_1709711795721_orch!system.rstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/JPetStore_Perf_1709711795721_perf!localhost.mstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/JPetStore_Perf_1709711795721_perf!localhost.rstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/JPetStore_Perf_1709711797171.executiondlr
+        type: statsSessionAsset
+  - name: JPetStore_Perf_1709711795721_orch!system.mstats
+  - name: JPetStore_Perf_1709711795721_orch!system.rstats
+    type: com.ibm.rational.test.lt.stats.raw
+  - name: JPetStore_Perf_1709711795721_perf!localhost.mstats
+  - name: JPetStore_Perf_1709711795721_perf!localhost.rstats
+    type: com.ibm.rational.test.lt.stats.raw
+  - name: JPetStore_Perf_1709711797171.executiondlr
+  - name: JPetStore_Perf_orch!system.mstats
+  - name: JPetStore_Perf_orch!system.rstats
+    type: com.ibm.rational.test.lt.stats.raw
+  - name: JPetStore_Perf_perf!localhost.mstats
+  - name: JPetStore_Perf_perf!localhost.rstats
+    type: com.ibm.rational.test.lt.stats.raw
+  - name: jmeter-example-VUSch.testsuite
+    type: com.ibm.rational.test.lt.schedule
+    version: 11.0.0.0
+    properties: 
+      description: 'Stages:
+
+	users=4; duration=Run Until Finished
+
+User Group 1: Group Size 100.0 percent
+
+	Agent(s): localhost
+
+'
+      name: jmeter-example-VUSch
+      type: com.ibm.rational.test.common.schedule.Schedule
+      uid: A1EEEA787D9B5110D1C2B36532353632
+    dependencies: 
+      - path: '/JPetStore_PerfTest/jmeter-example_Thread Group.jmx'
+        type: scheduleInvokedTest
+      - path: /JPetStore_PerfTest/localhost.location
+        type: scheduleLocation
+  - name: jmeter-example-VUSch_1711351470706.stats
+    type: com.ibm.rational.test.lt.stats.session
+    properties: 
+      startTime: 1711351470706
+      tags: 
+      testId: A1EEEA787D9B5110D1C2B36532353632
+      testName: jmeter-example-VUSch
+    dependencies: 
+      - path: /JPetStore_PerfTest/jmeter-example-VUSch.testsuite
+        type: statsSessionTest
+      - path: /JPetStore_PerfTest/jmeter-example-VUSch_1711351470706_orch!system.mstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/jmeter-example-VUSch_1711351470706_orch!system.rstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/jmeter-example-VUSch_1711351470706_perf!localhost.mstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/jmeter-example-VUSch_1711351470706_perf!localhost.rstats
+        type: statsSessionStore
+      - path: /JPetStore_PerfTest/jmeter-example-VUSch_1711351474871.executiondlr
+        type: statsSessionAsset
+  - name: jmeter-example-VUSch_1711351470706_orch!system.mstats
+  - name: jmeter-example-VUSch_1711351470706_orch!system.rstats
+    type: com.ibm.rational.test.lt.stats.raw
+  - name: jmeter-example-VUSch_1711351470706_perf!localhost.mstats
+  - name: jmeter-example-VUSch_1711351470706_perf!localhost.rstats
+    type: com.ibm.rational.test.lt.stats.raw
+  - name: jmeter-example-VUSch_1711351474871.executiondlr
+  - name: jmeter-example.jmx
+    type: com.ibm.rational.test.jmeter
+  - name: 'jmeter-example_Thread Group.jmx'
+    type: com.ibm.rational.test.jmeter
+  - name: localhost.location
+    type: com.ibm.rational.test.lt.location
+  - name: r.recdata
+  - name: r.recsession
+    type: com.ibm.rational.test.lt.recsession
+    dependencies: 
+      - path: /JPetStore_PerfTest/r.recdata
+        type: recsessionRecdata
+  - name: r.testsuite
+    type: com.ibm.rational.test.lt.test
+    version: 11.0.0.0
+    properties: 
+      features: 'com.ibm.rational.test.lt.feature.lt,com.ibm.rational.test.lt.feature.http'
+      type: com.ibm.rational.test.lt.lttest
+      uid: A1EEF3242FFB61C0D1C4E33832643165
+    dependencies: 
+      - path: /JPetStore_PerfTest/r.recsession
+        type: testRecsession
+  - name: src
+    resources: 
+      - name: test
+        resources: 
+          - name: JPetStore_Perf_Test_A1EEDB8EF87B1940DEE3E56136323632.java
+            type: com.ibm.rational.test.lt.generatedCode
+          - name: Schedule_A1EEEA787D9B5110D1C2B36532353632.java
+            type: com.ibm.rational.test.lt.generatedCode
